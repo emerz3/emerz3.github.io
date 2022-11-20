@@ -1,5 +1,5 @@
-title: Aucker's Blog
-baseURL: "https://aucker.github.io/"
+title: Emily's Blog
+baseURL: "https://emerz3.github.io/"
 theme: PaperModX
 hasCJKLanguage: true
 enableRobotsTXT: true
@@ -10,8 +10,8 @@ timeZone: Asia/Shanghai
   # minifyOutput: true
 
 params:
-  description: "Aucker's Blog"
-  author: ["aucker"]
+  description: "Emily's Blog"
+  author: ["Emily"]
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "2006-01-02"
@@ -67,7 +67,7 @@ params:
     - name: twitter-simple
       url: "https://twitter.com/auckera"
     - name: github-simple
-      url: "https://github.com/aucker"
+      url: "https://github.com/emerz3"
     - name: telegram-simple
       url: "https://t.me/aucker"
 
