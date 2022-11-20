@@ -1,0 +1,60 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # permissions:
+      # contents: read
+      # deployments: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12'
+
+      # - name: Setup PostCSS
+      #   run: npm install -g postcss-cli && npm install -g autoprefixer
+      
+      # - name: Setup Theme Dependency
+      #   run: npm install --prefix 
+
+      # - name: Composite package.json
+        # run: hugo -s ./ mod npm pack
+      
+      # - name: Setup Dependency
+        # run: npm install --prefix ./
+
+      # - name: Setup public
+      #   run: git worktree add -B gh-pages ./public origin/gh-pages
+
+      # - name: Clean public
+      #   run: rm -rf ./public/*
+
+      - name: Build
+        # run: hugo --minify --environment production -b https://aucker.me
+        # run: rm -rf public && hugo --minify --environment production --ignoreCache
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

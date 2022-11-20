@@ -1,0 +1,119 @@
+title: Aucker's Blog
+baseURL: "https://aucker.github.io/"
+theme: PaperModX
+hasCJKLanguage: true
+enableRobotsTXT: true
+timeZone: Asia/Shanghai
+
+# minify:
+  # disableXML: true
+  # minifyOutput: true
+
+params:
+  description: "Aucker's Blog"
+  author: ["aucker"]
+  # author: ["Me", "You"] # multiple authors
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "2006-01-02"
+  useCustomAnalytics: true
+
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  TocOpen: true
+  TocSide: right
+  EnableInstantClick: false
+  EnableImageZoom: true
+  ShowShareButtons: true
+  ShareButtons:
+    - twitter
+    - telegram
+   
+  ShowReadingTime: true
+  ShowWordCount: true
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+
+  ShowBreadCrumbs: true
+  comments: false
+
+  label:
+    text: "Home"
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: Aucker's Blog
+    subtitle: "📖"
+    # imageUrl: "<img location>"
+    imageUrl: "https://avatars.githubusercontent.com/u/115357719?v=4"
+    imageWidth: 160
+    imageHeight: 160
+    imageTitle: red panda
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Notes
+        url: notes
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+
+  socialIcons:
+    - name: twitter-simple
+      url: "https://twitter.com/auckera"
+    - name: github-simple
+      url: "https://github.com/aucker"
+    - name: telegram-simple
+      url: "https://t.me/aucker"
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+
+# prefer feed.xml rather than index.xml
+outputFormats:
+  RSS:
+    mediatype: "application/rss"  
+    baseName: "feed"
+
+menu:
+  main:
+    - name: posts
+      url: /posts
+      weight: 10
+    - name: tags
+      url: /tags/
+      weight: 20
+    - name: diary
+      url: /diary/
+      weight: 30
+    - name: about
+      url: about
+      weight: 40
+
+
+markup:
+  highlight:
+    goldmark:
+      renderer:
+        unsafe: true
+    # anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    # style: monokai
+    style: dracula
+    lineNos: true
+    noClasses: false
