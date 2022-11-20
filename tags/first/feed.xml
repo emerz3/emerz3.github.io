@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>first on Emily's Blog</title><link>https://emerz3.github.io/tags/first/</link><description>Recent content in first on Emily's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://emerz3.github.io/tags/first/feed.xml" rel="self" type="application/rss+xml"/><item><title>Daily Notes</title><link>https://emerz3.github.io/diary/</link><pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate><guid>https://emerz3.github.io/diary/</guid><description>My daily Notes</description><content:encoded><![CDATA[<h2 id="04-oct">04 Oct</h2>
+<h3 id="ubuntu删除无用的ppa之前安装的ppa现在因为proxy缘故下载不下来需要删除">Ubuntu删除无用的ppa（之前安装的ppa现在因为proxy缘故下载不下来，需要删除）</h3>
+<ol>
+<li>直接在/etc/apt/sources.list.d/文件夹中删除对应的文件即可。</li>
+<li>可以安装ppa-purge</li>
+</ol>
+<h3 id="github回到指定的commit">GitHub回到指定的commit</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone <span class="nv">$URL</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nv">$PROJECT_NAME</span>
+</span></span><span class="line"><span class="cl">git reset --hard <span class="nv">$SHA1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回最近提交：<code>git pull</code></p>
+<h3 id="更新了oh-my-zsh的主题">更新了oh-my-zsh的主题</h3>
+<p>默认主题由于过于简洁导致时长分不清当前工作目录；因此更换了一个新的<code>eastwood</code>主题，这是和<code>westwood</code>相互照应吗🤔， 效果不错。
+
+  <img loading="lazy" src="https://cdn.nlark.com/yuque/0/2022/png/21736221/1664872878730-966d747d-e9ac-4100-b2cf-be347999fa0a.png#clientId=ud7e51f78-a6ff-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=155&amp;id=u6a4600fe&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=162&amp;originWidth=730&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=27704&amp;status=done&amp;style=none&amp;taskId=uc05efcbf-cdaf-4f1b-aeff-1c6fce3dde6&amp;title=&amp;width=697#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=IWRGL&amp;originHeight=162&amp;originWidth=730&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="image.png"  /></p>
+<h2 id="05-oct">05 Oct</h2>
+<h3 id="check-the-version-and-codename-in-wsl">Check the version and codename in <code>WSL</code></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>~<span class="o">]</span>$ lsb_release -dc
+</span></span><span class="line"><span class="cl">Description:    Ubuntu 20.04.5 LTS
+</span></span><span class="line"><span class="cl">Codename:       focal
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="bug-protocol-https-not-supported-expected-http-2003httpsgithubcomnpmcliissues2003">Bug: Protocol &ldquo;https:&rdquo; not supported. Expected &ldquo;http:&rdquo; <a href="https://github.com/npm/cli/issues/2003">#2003</a></h3>
+<p>In node, when the <code>npm</code>version is lower than <code>7.0.6</code>, you will get the error.
+you can either upgrade the <code>npm</code>version or <strong>unset</strong> you proxy settings.</p>
+<h3 id="install-nvim">Install <code>NVIM</code></h3>
+<p>Trying to install nvim, and use the config from the <a href="https://github.com/aucker/nvim-config/blob/master/docs/nvim_setup_linux.sh">github</a>, there are some problems:</p>
+<ol>
+<li>mind the <code>python</code>, <code>path</code>variable, you need to change it.</li>
+<li>install the correct <code>node</code>version, refer to the bug above. 16 is better.</li>
+<li>this sh use all from souce, so you might have problem when you install from the package manager ( like apt).</li>
+<li>the shell script needs to be update, some are not so good (it use zsh as default, but it don&rsquo;t config the zsh).</li>
+</ol>
+<p>Currently I will still use the <code>vim</code> with some default configs, when I have time, I will migrate to <code>nvim</code>.
+In case I forget, the relevant folders are <code>~/package</code>, <code>~/tools</code>.</p>
+<h3 id="show-the-size-of-a-directory">Show the size of a directory</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>main<span class="o">][</span>~/archive/CS/data_structure/hashtable<span class="o">]</span>$ du -sh *
+</span></span><span class="line"><span class="cl">4.0K    Cargo.lock
+</span></span><span class="line"><span class="cl">4.0K    Cargo.toml
+</span></span><span class="line"><span class="cl">4.0K    README.md
+</span></span><span class="line"><span class="cl">12K     hashtable.cpp
+</span></span><span class="line"><span class="cl">12K     src
+</span></span><span class="line"><span class="cl">20K     unsafe.gif
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="08-oct">08 Oct</h2>
+<h3 id="ubuntu-apt-problemhttpsaskubuntucomquestions1096930sudo-apt-update-error-release-file-is-not-yet-valid">Ubuntu apt <a href="https://askubuntu.com/questions/1096930/sudo-apt-update-error-release-file-is-not-yet-valid">problem</a></h3>
+<p>When updating ubuntu with <code>sudo apt update</code>, got the error:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>~<span class="o">]</span>$ sudo apt update
+</span></span><span class="line"><span class="cl">Hit:1 https://mirrors.ustc.edu.cn/ubuntu focal InRelease
+</span></span><span class="line"><span class="cl">Get:2 https://mirrors.ustc.edu.cn/ubuntu focal-security InRelease <span class="o">[</span><span class="m">114</span> kB<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Get:3 https://mirrors.ustc.edu.cn/ubuntu focal-updates InRelease <span class="o">[</span><span class="m">114</span> kB<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Get:4 https://mirrors.ustc.edu.cn/ubuntu focal-backports InRelease <span class="o">[</span><span class="m">108</span> kB<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Reading package lists... Done
+</span></span><span class="line"><span class="cl">E: Release file <span class="k">for</span> https://mirrors.ustc.edu.cn/ubuntu/dists/focal-security/InRelease is not valid yet <span class="o">(</span>invalid <span class="k">for</span> another 14h 9min 28s<span class="o">)</span>. Updates <span class="k">for</span> this repository will not be applied.
+</span></span><span class="line"><span class="cl">E: Release file <span class="k">for</span> https://mirrors.ustc.edu.cn/ubuntu/dists/focal-updates/InRelease is not valid yet <span class="o">(</span>invalid <span class="k">for</span> another 15h 3min 44s<span class="o">)</span>. Updates <span class="k">for</span> this repository will not be applied.
+</span></span><span class="line"><span class="cl">E: Release file <span class="k">for</span> https://mirrors.ustc.edu.cn/ubuntu/dists/focal-backports/InRelease is not valid yet <span class="o">(</span>invalid <span class="k">for</span> another 14h 11min 52s<span class="o">)</span>. Updates <span class="k">for</span> this repository will not be applied.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Run:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo hwclock --hctosys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command gets the latest time from Windows machine&rsquo;s RTC and sets the system time to that.</p>
+<h2 id="09-oct">09 Oct</h2>
+<h3 id="git-ssh">Git SSH</h3>
+<p>I want to add another github account in my terminal, I refer stackoverflow for some ways. The <a href="https://stackoverflow.com/questions/40069344/remote-rejected-master-master-permission-denied#:~:text=2FA%20in%20github-,Solution%20was%20next%3A,-Generate%20new%20SSH">following</a> is a work way:</p>
+<ol>
+<li>Generate new ssh <code>id_rsa</code>key (<a href="https://stackoverflow.com/questions/32910928/ssh-keygen-no-such-file-or-directory#:~:text=The%20command%20could%20not%20save%20your%20key.">Link1</a> &amp; <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">Link2</a>)</li>
+<li>Add the SSH key to ssh-agent <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">Link</a></li>
+<li>Add a new SSH key to your account <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account">Link</a></li>
+<li>Change remote for repository from <code>https</code>to <code>git</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;mail@host.com&#34;</span> -f id_rsa_user  <span class="c1"># step 1: should at ~/.ssh/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa_user  <span class="c1"># step 2: add ssh key to ssh-agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git remote set-url origin git@github.com:username/repository.git <span class="c1">#step 4: change remote for the repo</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is also a work <a href="https://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig#:~:text=This%20solution%20takes%20the%20form%20of%20a%20single%20git%20alias.">Link</a>. I haven&rsquo;t give it a try.</p>
+<h2 id="10-oct">10 Oct</h2>
+<h3 id="yt-dlp">yt-dlp</h3>
+<p>Download the youtube video, the <code>youtube-dl</code>is so slow, even with proxy.
+Use the command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yt-dlp -f b --proxy http://<span class="nv">$host_ip</span>:7890 <span class="nv">$LINK</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Speed is alright.</p>
+<h2 id="14-oct">14 Oct</h2>
+<h3 id="make-microsoft-software-available-even-when-using-proxy">Make microsoft software available even when using proxy:</h3>
+<p>Use the clash, then in <code>UWP Lookback</code>, mark the software you want to use.
+
+  <img loading="lazy" src="https://cdn.nlark.com/yuque/0/2022/png/21736221/1665735767707-8b778284-4117-4ca1-9c6b-f3923199ac4c.png#clientId=ucd4feb0f-6c94-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=361&amp;id=udef999bf&amp;name=image.png&amp;originHeight=361&amp;originWidth=754&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=36585&amp;status=error&amp;style=none&amp;taskId=u4cc87779-1e71-4a6c-93e1-555ab923aa3&amp;title=&amp;width=754" alt="image.png"  /></p>
+<h2 id="15-oct">15 Oct</h2>
+<h3 id="make-pythonexcute-python-3">Make <code>python</code>excute <code>Python 3</code></h3>
+<p>Install <code>python-is-python3</code> with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install python3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then the <code>python2</code>in your computer will also be useless, then just</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt autoremove python2 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and every thing works fine.</p>
+<h3 id="change-the-hostname-of-ubuntu">Change the hostname of Ubuntu</h3>
+<p>The default config for standard Ubuntu is at <code>/usr/hostname</code>and <code>/usr/hosts</code>, just replace them with the name you want.
+But in WSL2, you should change the <code>wsl.conf</code>which is under <code>/usr/wsl.conf</code>with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>network<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">hostname</span> <span class="o">=</span> focal
+</span></span><span class="line"><span class="cl"><span class="nv">generateHosts</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then restart, everything works fine.</p>
+<h2 id="18-oct">18 Oct</h2>
+<h3 id="picture-the-code">Picture the code</h3>
+<p><code>silicon</code>is a tool that can make png file with code input.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">silicon main.rs -o main.png
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Use with <code>cargo install silicon</code>, in Ubuntu, perhaps need install some libs to make it work,
+use <code>apt search xxx</code>to search the package.</p>
+<h2 id="20-oct">20 Oct</h2>
+<h3 id="sql-standard">SQL standard</h3>
+<p>I am working miniob to add some basic SQL syntex, I find in most database, like <code>mysql</code>, <code>postgres</code>, <code>mariadb</code>, the SQL query <code>select id, * from t;</code>will cause the SQL error.</p>
+<p>But in <code>spark-sql</code>, I can even write this query: <code>select id, *, id, *, id from t;</code>, this is ridiculous, I need to remove the <code>COMMA STAR attr_list</code>in <code>attr_list</code>cause it is not the standard SQL in most databases.</p>
+<h3 id="docker-in-wsl">Docker in WSL</h3>
+<p>I install <code>docker</code>in my WSL2, I can test something on wsl mysql easily.
+My conf is</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>boot<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">command</span><span class="o">=</span><span class="s2">&#34;service docker start&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But since wsl supports <code>systemd</code>on Sep, after I set</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>boot<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">systemd</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">command</span><span class="o">=</span><span class="s2">&#34;service docker start&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I can&rsquo;t start my docker service, I tried <code>sudo dockerd --debug</code>, <code>sudo systemctl start docker</code>from stackoverflow, but none of them works.
+Then I tried remove <code>systemd=true</code>, docker works again. But I still don&rsquo;t know why.</p>
+<h2 id="22-oct">22 Oct</h2>
+<h3 id="type-conversion-in-c">Type Conversion in C++</h3>
+<ol>
+<li>Implicit Type Conversion</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">num_int</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">num_double</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_double</span> <span class="o">=</span> <span class="n">num_int</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Or
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">num_int</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dourble</span> <span class="n">num_double</span> <span class="o">=</span> <span class="mf">9.99</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_int</span> <span class="o">=</span> <span class="n">num_double</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Implicit type conversion may cause data lossing when convert the larger type to smaller type.
+like  from Long double to double.</p>
+<ol start="2">
+<li>Explict Type Conversion</li>
+</ol>
+<ul>
+<li>C style type conversion</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="p">(</span><span class="n">data_type</span><span class="p">)</span><span class="n">expression</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">num_int</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">num_double</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_double</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">num_int</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Function-style casting</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">data_type</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">num_int</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">num_double</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_double</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">num_int</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Type conversion Operators
+<ul>
+<li>static_cast</li>
+<li>dynamic_cast</li>
+<li>const_cast</li>
+<li>reinterpret_cast</li>
+</ul>
+</li>
+</ul>
+<h2 id="25-oct">25 Oct</h2>
+<p>The <code>winget</code>is built-in program for windows to install softwares.
+The <code>scoop</code>is another package manager like <code>brew</code>in Mac, <code>apt</code>in Debian.</p>
+<p>The text to ASCII, use the <code>figlet</code>command (a fun fact: there is also a software named <code>toilet</code> that can also generate ASCII characters.</p>
+<p>The <code>feh</code>use the X window to display image, which is very lightweight,
+besides, use the <code>explorer.exe xxx.png</code>can also open the image file. Just add an alias with
+<code>alias winfile=&quot;explorer.exe&quot;</code>. This is very useful.</p>
+<h2 id="01-nov">01 Nov</h2>
+<h3 id="select-will-make-the-query-slow"><code>SELECT *</code>will make the query slow</h3>
+<ol>
+<li>效率低的原因
+<ol>
+<li>不需要的列会增加数据传输时间和网络开销
+<ol>
+<li>需要解析更多的对象、字段、权限、属性等相关内容，在SQL语句复杂，硬解析较多的情况下，会对数据库造成沉重的负担</li>
+<li>增大网络开销；*有时会带上如log、IconMD5之类的无用且大文本字段，数据传输size会集合增长。如果DB和应用程序不在同一台机器，这种开销非常明显。</li>
+<li>即使MySQL服务器和客户端是在同一台机器上，使用的协议还是tcp，通信也是需要额外的时间。</li>
+</ol>
+</li>
+<li>对于无用的大字段，如varchar、blob、text，会增加io操作
+<ol>
+<li>准确来说，长度超过728字节的时候，会先把超出的数据序列化到另外一个地方，因此读取这条记录会增加一次io操作。</li>
+</ol>
+</li>
+<li>失去MySQL优化器“覆盖索引”策略优化的可能性
+<ol>
+<li>基于MySQL优化器的“覆盖索引”策略又是速度极快，效率极高，业界极为推荐的查询优化方式。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="18-nov">18 Nov</h2>
+<h3 id="perf-tool-in-wsl2"><code>perf</code> tool in WSL2</h3>
+<p>Normally, there is no perf tools in WSL2 linux, (Debian/Ubuntu), in order to use perf tools, you need to use <a href="https://github.com/microsoft/WSL2-Linux-Kernel">WSL kernel</a> to compile it locally. The folder is <code>/WSL*/tools/perf</code>. Before compile, install the <code>bison</code> and <code>flex</code>. Then just run <code>make</code>. After compiling, there are two ways to use perf:</p>
+<ol>
+<li>add the perf <code>realpath</code> to <code>PATH</code>, like <code>export PATH=$PATH:/&lt;path of perf&gt;</code> in <code>.zshrc</code> or <code>.bashrc</code> file.</li>
+<li>just copy the <code>perf</code> file to <code>usr/local/bin</code>.</li>
+</ol>
+<p>Way 2 is better.</p>
+<p>Then refer this <a href="https://www.imlc.me/perf/">blog</a> and flamegraph github readme file to draw flamegraph.</p>
+<h3 id="python-tools">Python tools</h3>
+<p>There are some tools to check the python code. Like <code>mypy</code>, <code>pyflakes3</code>, <code>black</code>. In C/C++, <code>cpplint</code> is a good choice.</p>
+<h2 id="19-nov">19 Nov</h2>
+<h3 id="irc-on-debian"><code>IRC</code> on Debian</h3>
+<p>I am using the weechat as my IRC client, my IP is banned by libera, luckily, the <code>OFTC</code> is still available. There are some interesting channels on Debian IRC, and I even find a <code>#debian-zh</code> channel.</p>
+<p>Here are step I use weechat(I did not use the ssl):</p>
+<ol>
+<li>use <code>/help server</code> to check some useful command to connect, list, or delete a server.</li>
+<li>use <code>/server add oftc irc.oftc.net</code> to add this server to weechat. PS. refer to <a href="https://weechat.org/files/doc/stable/weechat_quickstart.en.html#add_irc_server">weechat guide</a></li>
+<li>you can alias your name like <code>/set irc.server.oftc.nicks &quot;&lt;your nicks&gt;&quot;</code></li>
+<li>some channels like <code>#debian-zh</code> requires you to register and verify your usename. refer to <a href="#irc-nickserv">msg NickServ help</a>.</li>
+<li>use <code>/join #debian-zh</code>, here you are!</li>
+</ol>
+<h3 id="irc-nickserv">IRC NickServ</h3>
+<p>Some channels require you to register a nickname before chatting.
+<code>/msg NickServ help</code> will show how to register.
+use <code>/msg NickServ register &lt;passwd&gt; &lt;mail&gt;</code> to register a nickname. Both are required to register.
+mail is only used to find the passwd when you do not remember.
+After that you can use <code>/msg NickServ info &lt;nick&gt;</code> and <code>/msg NickServ status &lt;nick&gt;</code> to check your nickname.
+
+  <img loading="lazy" src="https://user-images.githubusercontent.com/41871212/202839682-d93c477b-913f-41ae-a8af-515782632010.png" alt="image"  /></p>
+<h3 id="blog-with-hugo-and-papermod">Blog with hugo and papermod</h3>
+<p>Coder theme supports code not well, so I choose change coder to papermod.</p>
+<p>It takes me a lot of time to understand the domain. At last, it works! I put the <code>CNAME</code> file in the static folder according to <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#use-a-custom-domain">manual</a>, then every time I update my blog, <code>aucker.me</code> works well, cool.👏</p>
+<p>Plus, I also learn a git command <a href="https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely#:~:text=2511-,The%20short%20answers,-If%20you%20want">refererence</a>:</p>
+<h4 id="delete-a-remote-branch"><strong>Delete a remote branch</strong></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git push origin --delete &lt;branch&gt; <span class="c1"># Git version 1.7.0 or newer</span>
+</span></span><span class="line"><span class="cl">git push origin -d &lt;branch&gt;   
+</span></span><span class="line"><span class="cl">git push origin :&lt;branch&gt;         <span class="c1"># Git version older than 1.7.0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="delete-a-local-branch">Delete a local branch</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch --delete &lt;branch&gt;
+</span></span><span class="line"><span class="cl">git branch -d &lt;branch&gt;
+</span></span><span class="line"><span class="cl">git branch -D &lt;branch&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To set a local mirror of git, refer <a href="https://github.com/auckerlab/simple-db-hw-2022#setting-up-git">this</a></p>
+]]></content:encoded></item></channel></rss>

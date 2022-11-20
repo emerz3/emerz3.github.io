@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Emily's Blog</title><link>https://emerz3.github.io/</link><description>Recent content on Emily's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 15 May 2022 18:33:47 +0800</lastBuildDate><atom:link href="https://emerz3.github.io/feed.xml" rel="self" type="application/rss+xml"/><item><title>Mark</title><link>https://emerz3.github.io/posts/mark/</link><pubDate>Sun, 15 May 2022 18:33:47 +0800</pubDate><guid>https://emerz3.github.io/posts/mark/</guid><description>The archtypes in Hugo When I was pushing blogs use hugo themes, I found a strange thing: I cannot go the the subdirectory of my blog, that&amp;rsquo;s very wired.
+Then after using the command hugo server to run my blog locally, I found that my archtypes are wrong.
+The archtype is like a template when you use hugo new to write new blog, it will generate a new .md file. When you open the file, you&amp;rsquo;ll find that this file is not a empty file, you will get some information on this file if you configure your archtypes file.</description><content:encoded><![CDATA[<h2 id="the-archtypes-in-hugo">The archtypes in Hugo</h2>
+<p>When I was pushing blogs use hugo themes, I found a strange thing: I cannot go the the subdirectory of my blog, that&rsquo;s very wired.</p>
+<p>Then after using the command <code>hugo server</code> to run my blog locally, I found that my archtypes are wrong.</p>
+<p>The archtype is like a template when you use <code>hugo new</code> to write new blog, it will generate a new <code>.md</code> file. When you open the file, you&rsquo;ll find that this file is not a empty file, you will get some information on this file if you configure your archtypes file.</p>
+<p>Traditionally, there&rsquo;re two types of archtype file.</p>
+<ul>
+<li>This is a correct way.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">author: Hugo Authors
+</span></span><span class="line"><span class="cl">title: Math Typesetting
+</span></span><span class="line"><span class="cl">date: 2019-03-08
+</span></span><span class="line"><span class="cl">description: A brief guide to setup KaTeX
+</span></span><span class="line"><span class="cl">math: true
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>This is another way.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+++
+</span></span><span class="line"><span class="cl">author = &#34;Hugo Authors&#34;
+</span></span><span class="line"><span class="cl">title = &#34;Markdown Syntax Guide&#34;
+</span></span><span class="line"><span class="cl">date = &#34;2019-03-11&#34;
+</span></span><span class="line"><span class="cl">description = &#34;Sample article showcasing basic Markdown syntax and formatting for HTML elements.&#34;
+</span></span><span class="line"><span class="cl">tags = [
+</span></span><span class="line"><span class="cl">    &#34;markdown&#34;,
+</span></span><span class="line"><span class="cl">    &#34;css&#34;,
+</span></span><span class="line"><span class="cl">    &#34;html&#34;,
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">categories = [
+</span></span><span class="line"><span class="cl">    &#34;themes&#34;,
+</span></span><span class="line"><span class="cl">    &#34;syntax&#34;,
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">series = [&#34;Themes Guide&#34;]
+</span></span><span class="line"><span class="cl">aliases = [&#34;migrate-from-jekyl&#34;]
+</span></span><span class="line"><span class="cl">+++
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></content:encoded></item><item><title>Rust Macros Learning</title><link>https://emerz3.github.io/posts/rust-macros-learning/</link><pubDate>Sat, 16 Apr 2022 19:23:26 +0800</pubDate><guid>https://emerz3.github.io/posts/rust-macros-learning/</guid><description>The Rust macro learning: A Methodical Introduction Macros in the AST There are four types of macros in rust.
+macro_rules! As noted previously, macro_rules! is itself a syntax extension, meaning it is technically not part of the Rust Syntax. It uses the following forms:
+1 2 3 4 5 6 macro_rules! $name { $rule0 ; $rule1 ; // ... $ruleN ; } There must be at least one rule, and you can omit the semicolon after the last rule.</description><content:encoded><![CDATA[<h1 id="the-rust-macro-learning-a-methodical-introduction">The Rust macro learning: A Methodical Introduction</h1>
+<h2 id="macros-in-the-asthttpsveykrilgithubiotlbormsyntax-extensionsasthtmlmacros-in-the-ast"><a href="https://veykril.github.io/tlborm/syntax-extensions/ast.html#macros-in-the-ast">Macros in the AST</a></h2>
+<p>There are four types of macros in rust.</p>
+<h2 id="macro_rules">macro_rules!</h2>
+<p>As noted previously, <code>macro_rules!</code> is <em>itself</em> a syntax extension, meaning it is <em>technically</em> not part of the Rust Syntax. It uses the following forms:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="cp">$name</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">$rule0</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cp">$rule1</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="cp">$ruleN</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>There must be <em>at least</em> one rule, and you can omit the semicolon after the last rule. You can use brackets<code>[]</code>, parentheses<code>()</code> or braces<code>{}</code>.</p>
+<p>Each &ldquo;rule&rdquo; looks like the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    ($matcher) =&gt; {$expansion}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Like before, the types of parentheses used can be any kind, but parenthese around the matcher and braces around the expansion are somewhat conventional. The expansion part of a rule is also called its <strong>transcriber</strong>.</p>
+<p>Note that the choice of the parentheses does not matter in regards to how the mbe(macro by example) macro may be invoked. In fact, function-like macros can be invoked with any kind of parentheses as well, but invocations with <code>{ .. }</code> and <code>{ ... };</code>, notice the trailing semicolon, are special in that their expansion will <strong>always</strong> be parsed as an <strong>item</strong>.</p>
+<h2 id="metavariables">Metavariables</h2>
+<p>Matchers can also contain captures. These allow input to be matched based on some general grammer category, with the result captured to a metavariable which can then be substituted into the output.</p>
+<p>Captures are written as a dollar <code>$</code> followed by an identifier, a colon <code>:</code>, and finally the kind of capture which is also called the fragment-specifier, which must be one of the following:</p>
+<ul>
+<li><code>block</code>: a block (i.e. a block of statements and/or an expression, surrounded by braces)</li>
+<li><code>expr</code>: an expression</li>
+<li><code>ident</code>: an identifier (this includes keywords)</li>
+<li><code>item</code>: an item, like a function, struct, module, impl, etc.</li>
+<li><code>lifetime</code>: a lifetime (e.g. <code>'foo</code>, <code>'static</code>, &hellip;)</li>
+<li><code>literal</code>: a literal (e.g. <code>&quot;Hello World!&quot;</code>, <code>3.14</code>, &lsquo;:crab:&rsquo;, &hellip;)</li>
+<li><code>meta</code>: a meta item; teh things that go inside the <code>#[...]</code> and <code>#![...]</code> attributes</li>
+<li><code>pat</code>: a pattern</li>
+<li><code>path</code>: a path (e.g. <code>foo</code>, <code>::std::mem::replace</code>, <code>transmute::&lt;_, int&gt;</code>, &hellip;)</li>
+<li><code>stmt</code>: a statment</li>
+<li><code>tt</code>: a single token free</li>
+<li><code>ty</code>: a type</li>
+<li><code>vis</code>: a possible empty visibility qualifier (e.g. <code>pub</code>, <code>pub(in crate)</code>, &hellip;)</li>
+</ul>
+<p>For example, here is a <code>macro_rules!</code> macro which captures its input as an expression under the metavariable <code>$e</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">one_expression</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$e</span>:<span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="o">..</span><span class="p">.};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>These metavariables leverage the Rust compiler&rsquo;s parser, ensuring that they are always &ldquo;correct&rdquo;. An <code>expr</code> metavariable will <em>always</em> capture a complete, valid expression for the version of Rust being compiled.</p>
+<p>To refer to a metavariable you simply write <code>$name</code>, as the type of the variable is already specified in the matcher. For example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">time_five</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$e</span>:<span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="cp">$e</span><span class="w"> </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Much like macro expansion, metavariables are substituted as complete AST nodes. This means that no matter what sequence of tokens is captured by <code>$e</code>, it will be interpreted as a single, complete expression.</p>
+<p>You can also have multiple metavariables in a single matcher:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">multiply_add</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$a</span>:<span class="nc">expr</span><span class="p">,</span><span class="w"> </span><span class="cp">$b</span>:<span class="nc">expr</span><span class="p">,</span><span class="w"> </span><span class="cp">$c</span>:<span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cp">$a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="cp">$b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="cp">$c</span><span class="p">)</span><span class="w"> </span><span class="p">};</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add use them as often as you like in the expansion:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="n">marco_rules</span><span class="o">!</span><span class="w"> </span><span class="n">discard</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$e</span>:<span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">marco_rules</span><span class="o">!</span><span class="w"> </span><span class="n">repeat</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$e</span>:<span class="nc">expr</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cp">$e</span><span class="p">;</span><span class="w"> </span><span class="cp">$e</span><span class="p">;</span><span class="w"> </span><span class="cp">$e</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is also a special metavariable called <code>$crate</code> which can be used to refer to the current crate.</p>
+<h2 id="repetitions">Repetitions</h2>
+<p>Matchers can contain repetitions. These allow a sequence of tokens to be matched. These have the general form <code>$ ( ... ) sep rep</code>.</p>
+<ul>
+<li>
+<p><code>$</code> is a literal dollar token.</p>
+</li>
+<li>
+<p><code>( ... )</code> is the paren-grouped matcher being repeated.</p>
+</li>
+<li>
+<p><code>sep</code> is an <em>optional</em> separator token. It may not be a delimiter or one of the repetition operators. Common examples are <code>,</code> and <code>;</code>.</p>
+</li>
+<li>
+<p><code>rep</code> is the <em>required</em> repeat operator. Currently, this can be:</p>
+<ul>
+<li><code>?</code>: indicating at most one repetition</li>
+<li><code>*</code>: indicating zero or more repetitions</li>
+<li><code>+</code>: indicating one or more repetitions</li>
+</ul>
+<p>Since <code>?</code> represents at most one occurence, it cannot be used with a separator.</p>
+</li>
+</ul>
+<p>Repetitions can contain any other valid matcher, including literal token trees, metavariables, and other repetitions allowing arbitrary nesting.</p>
+<p>Repetitions use the same syntax in the expansion and repeated metavariables can only be accessed inside of repetitions in the expansion.</p>
+<p>For example, below is a mbe macro which formats each element as a string. It matches zero or more comma-separated expressions and expands to an expression that constructs a vector.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">vec_strs</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Start a repetition:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="cp">$(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// Each repeat must contain an expression...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="cp">$element</span>:<span class="nc">expr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ...separated by commas...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ...zero or more times.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Enclose the expansion in a block so that we can use 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="c1">// multiple statements.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// Start a repetition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="cp">$(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// Each repeat will contain the following statement, with
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="c1">// $element replaced with the corresponding expression
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="n">v</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="fm">format!</span><span class="p">(</span><span class="s">&#34;{}&#34;</span><span class="p">,</span><span class="w"> </span><span class="cp">$element</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">)</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">v</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec_strs</span><span class="o">!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;a&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14159</span><span class="k">f32</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="s">&#34;1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;a&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;true&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;3.14159&#34;</span><span class="p">]);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can repeat multiple metavariables in a single repetition as long as all metavariables repeat equally often. So this invocation of the following macro works:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="fm">macro_rules!</span><span class="w"> </span><span class="n">repeat_two</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="cp">$($i</span>:<span class="nc">ident</span><span class="p">)</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="cp">$($i2</span>:<span class="nc">ident</span><span class="p">)</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cp">$(</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="cp">$i</span>: <span class="p">();</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="cp">$i2</span>: <span class="p">();</span><span class="w"> </span><span class="p">)</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">repeat_two</span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>But this does not:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="o">..</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">repeat_two</span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>failing with the error</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="n">meta</span><span class="o">-</span><span class="n">variable</span><span class="w"> </span><span class="o">`</span><span class="n">i</span><span class="o">`</span><span class="w"> </span><span class="n">repeats</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="n">times</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="o">`</span><span class="n">i2</span><span class="o">`</span><span class="w"> </span><span class="n">repeats</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">times</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">rs</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">6</span><span class="w"> </span><span class="o">|</span><span class="w">         </span><span class="err">$</span><span class="p">(</span><span class="w"> </span><span class="n">let</span><span class="w"> </span><span class="err">$</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="p">();</span><span class="w"> </span><span class="n">let</span><span class="w"> </span><span class="err">$</span><span class="n">i2</span><span class="p">:</span><span class="w"> </span><span class="p">();</span><span class="w"> </span><span class="p">)</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">|</span><span class="w">          </span><span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></content:encoded></item><item><title>HEXO Blog</title><link>https://emerz3.github.io/posts/hexo-blog/</link><pubDate>Sun, 19 Apr 2020 20:16:10 +0800</pubDate><guid>https://emerz3.github.io/posts/hexo-blog/</guid><description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description><content:encoded><![CDATA[<h2 id="build-a-hexo-blog">Build a HEXO blog!!</h2>
+<ul>
+<li>
+<h3 id="install-nodenvm">install node(nvm)</h3>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh <span class="p">|</span> bash
+</span></span><span class="line"><span class="cl">nvm install node
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h3 id="change-the-npm-mirrors">change the <code>npm</code> mirrors</h3>
+<ul>
+<li>temporary use
+<code>npm --registry https://registry.npm.taobao.org install express</code></li>
+<li>set in the config
+<code>npm config set registry https://registry.npm.taobao.org</code></li>
+<li>use <code>cnpm</code>
+<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ul>
+</li>
+<li>
+<h3 id="install-hexo">install HEXO</h3>
+</li>
+</ul>
+<p><code>sudo npm install -g hexo</code></p>
+<ul>
+<li>
+<h3 id="create-blog-folder">create Blog folder</h3>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir <span class="o">[</span>filename<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="o">[</span>filename<span class="o">]</span>
+</span></span><span class="line"><span class="cl">hexo init <span class="o">[</span>filename<span class="o">]</span>
+</span></span><span class="line"><span class="cl">npm install
+</span></span><span class="line"><span class="cl">hexo s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h3 id="associate-with-git">associate with Git</h3>
+<ul>
+<li>create a new repo named with <code>$username.github.io</code></li>
+<li>back to the directory of the blog, edit the <code>_config.yaml</code> file</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;git&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/XXX/XXX.github.io.git</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>generate the static HTML
+<code>hexo generate</code> or <code>hexo g</code></li>
+<li>config the HTML, and deploy the local blog to Github pages
+<code>npm install hexo-deployer-git --save</code>
+<code>hexo deploy</code> or <code>hexo d</code></li>
+</ul>
+</li>
+<li>
+<h3 id="deploy-blog">Deploy blog</h3>
+<ul>
+<li>go the blog directory, execute <code>hexo new &quot;newblog&quot;</code>, a new file named newblog.md will apear in the directory [filename]/source/_posts, edit it with vim or typora or&hellip;</li>
+<li>after editing, push it to github page:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hexo generate
+</span></span><span class="line"><span class="cl">hexo deploy
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<h3 id="change-themes">change themes</h3>
+</li>
+</ul>
+<p>defalut theme is <code>landscape</code>, you can choose anyone you like. like <strong>Ada</strong></p>
+<p>go to the directory of blog, execute:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone https://github.com/litten/hexo-theme-yilia themes/yilia
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>then, change the <code>_config.yaml</code>, change the <code>landscape</code> to <code>yilia</code>,after that:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hexo clean      //清除缓存文件（db.json）和静态文件（public）
+</span></span><span class="line"><span class="cl">hexo g          //生成缓存和静态文件
+</span></span><span class="line"><span class="cl">hexo s          //重新部署到服务器
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></content:encoded></item><item><title>Manjaro Linux Configuration</title><link>https://emerz3.github.io/posts/manjaro-linux-configuration/</link><pubDate>Sun, 19 Apr 2020 20:15:41 +0800</pubDate><guid>https://emerz3.github.io/posts/manjaro-linux-configuration/</guid><description>Mirrors After the installation of Manjaro, configure the mirror
+sudo pacman-mirrors -g rank the mirrors sudo pacman-mirrors -c China -m rank change the Chinese mirror add archlinuxcn blocks in /etc/pacman.conf file. 1 2 3 [archlinuxcn] SigLevel = Optional TrustedOnly Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch the optional installation is archlinuxcn-keyring so that import GPG key, in case of the verification failure: sudo pacman -S archlinuxcn-keyring sync and update the system 1 2 sudo pacman -S manjaro-keyring sudo pacman -Syyu Input methods fcitx(Free Chinese Input Toy for X)</description><content:encoded><![CDATA[<h2 id="mirrors">Mirrors</h2>
+<p>After the installation of Manjaro, configure the mirror</p>
+<ul>
+<li><code>sudo pacman-mirrors -g</code> rank the mirrors</li>
+<li><code>sudo pacman-mirrors -c China -m rank</code> change the Chinese mirror</li>
+<li>add <code>archlinuxcn</code> blocks in <code>/etc/pacman.conf</code> file.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>archlinuxcn<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SigLevel</span> <span class="o">=</span> Optional TrustedOnly
+</span></span><span class="line"><span class="cl"><span class="nv">Server</span> <span class="o">=</span> https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="nv">$arch</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>the optional installation is <code>archlinuxcn-keyring</code> so that import GPG key, in case of the verification failure:
+<code>sudo pacman -S archlinuxcn-keyring</code></li>
+<li>sync and update the system
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo pacman -S manjaro-keyring
+</span></span><span class="line"><span class="cl">sudo pacman -Syyu
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="input-methods">Input methods</h2>
+<p>fcitx(Free Chinese Input Toy for X)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S fcitx-googlepinyin
+</span></span><span class="line"><span class="cl">sudo pacman -S fcitx-im
+</span></span><span class="line"><span class="cl">sudo pacman -S fcitx-configtool # GUI config tool
+</span></span><span class="line"><span class="cl">sudo pacman -S fcitx-skin-material
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>solve the input method switch problem: add the file <code>~/.xprofile</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export GTK_MODULE=fcitx
+</span></span><span class="line"><span class="cl">export QT_IM_MODULE=fcitx
+</span></span><span class="line"><span class="cl">export XMODIFIERS=&#34;@im=fcitx&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>then reboot.</p>
+<h2 id="pacman">pacman</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S [name]  # install
+</span></span><span class="line"><span class="cl">sudo pacman -R [name]  # delete the single software, butthe relationship remains
+</span></span><span class="line"><span class="cl">sudo pacman -Rns [name]  # delte the software &amp; dependencies
+</span></span><span class="line"><span class="cl">sudo pacman -Ss [name]  # find a software
+</span></span><span class="line"><span class="cl">sudo pacman -Sc  # clear &amp; download new data
+</span></span><span class="line"><span class="cl">sudo pacman -Qs  # search the exist packages
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="zsh">ZSH</h2>
+<p>sudo pacman -S zsh
+(sudo) chsh -s /bin/zsh
+wget <a href="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh">https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh</a> -O - | sh</p>
+<blockquote>
+<p>now manjaro KDE has the pre-install zsh environment, hooray!!!</p>
+</blockquote>
+]]></content:encoded></item></channel></rss>
